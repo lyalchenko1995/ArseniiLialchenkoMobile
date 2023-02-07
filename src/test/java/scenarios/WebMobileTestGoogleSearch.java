@@ -4,6 +4,7 @@ import org.openqa.selenium.Keys;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 import pageObjects.webPages.WebPageObject;
+import pageObjects.webPages.forms.CockiesForm;
 import setup.BaseTest;
 
 import java.io.IOException;
@@ -20,7 +21,9 @@ public class WebMobileTestGoogleSearch extends BaseTest {
         //open Google page
         getDriver().get(getSearchEngineProperties());
         waitUntilWebPageOpened();
-        webPageObject.clickOnAcceptAllButton();
+
+        CockiesForm cockiesForm = new CockiesForm(getDriver());
+        cockiesForm.clickOnCockiesButton(getDriver());
         //Enter search key value
         webPageObject.getSearchField().sendKeys(getKeyWordProperties() + Keys.ENTER);
 
