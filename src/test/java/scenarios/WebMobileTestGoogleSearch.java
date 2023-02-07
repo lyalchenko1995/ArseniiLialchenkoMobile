@@ -15,9 +15,12 @@ public class WebMobileTestGoogleSearch extends BaseTest {
 
     @Test(groups = {"web"}, description = "Test google search")
     public void webTest() throws IOException {
+        WebPageObject webPageObject = new WebPageObject(getDriver());
+
         //open Google page
         getDriver().get(getSearchEngineProperties());
         waitUntilWebPageOpened();
+        webPageObject.clickOnAcceptAllButton();
         //Enter search key value
         webPageObject.getSearchField().sendKeys(getKeyWordProperties() + Keys.ENTER);
 

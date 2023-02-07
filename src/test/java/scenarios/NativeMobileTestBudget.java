@@ -15,14 +15,16 @@ public class NativeMobileTestBudget extends BaseTest {
 
     @Test(groups = {"native"}, description = "Test that budget activity page is displayed")
     public void budgetPageOpenedTest() throws IOException {
-
+        LoginPage loginPage = new LoginPage(getDriver());
         loginPage.openRegistrationPage();
-        //Create new user
+//        Create new user
+        RegistrationPage registrationPage = new RegistrationPage(getDriver());
         registrationPage.fillRegistrationForm(getEmailProperties(), getUserNameFromProperties(), getUserPasswordFromProperties());
-        registrationPage.clickRegisterButton();
+        registrationPage.clickRegistrationButton();
 
-        loginPage.login(getUserNameFromProperties(), getUserPasswordFromProperties());
+        loginPage.login(getEmailProperties(), getUserPasswordFromProperties());
 
+        BudgetActivityPage budgetActivityPage = new BudgetActivityPage(getDriver());
         Assert.assertEquals(budgetActivityPage.getBudgetPageName(), "BudgetActivity");
     }
 

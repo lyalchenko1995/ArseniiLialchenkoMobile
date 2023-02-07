@@ -8,7 +8,7 @@ import java.util.Properties;
 public class nativeData {
 
     public static Properties getPropertyObject() throws IOException {
-        String path = new File("src\\test\\resources\\properties\\registrationLogin.properties").getAbsolutePath();
+        String path = new File("src\\test\\resources\\properties\\nativeLogin.properties").getAbsolutePath();
         FileInputStream fp = new FileInputStream(path);
         Properties prop = new Properties();
         prop.load(fp);

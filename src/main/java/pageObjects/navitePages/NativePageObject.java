@@ -14,5 +14,4 @@ public class NativePageObject {
         this.driver = driver;
         PageFactory.initElements(new AppiumFieldDecorator(driver), this);
     }
-
 }

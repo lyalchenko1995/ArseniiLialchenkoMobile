@@ -1,6 +1,7 @@
 package setup;
 
 import io.appium.java_client.AppiumDriver;
+import io.appium.java_client.AppiumFluentWait;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.remote.DesiredCapabilities;
 import org.openqa.selenium.support.ui.WebDriverWait;
@@ -20,11 +21,6 @@ public class BaseTest implements IDriver {
 
     private static AppiumDriver appiumDriver; // singleton
     IPageObject po;
-
-    protected RegistrationPage registrationPage = new RegistrationPage(appiumDriver);
-    protected LoginPage loginPage = new LoginPage(appiumDriver);
-    protected BudgetActivityPage budgetActivityPage = new BudgetActivityPage(appiumDriver);
-    protected WebPageObject webPageObject = new WebPageObject(getDriver());
 
     @Override
     public AppiumDriver getDriver() {
@@ -79,5 +75,4 @@ public class BaseTest implements IDriver {
                 wd -> ((JavascriptExecutor) wd).executeScript("return document.readyState").equals("complete")
         );
     }
-
 }
