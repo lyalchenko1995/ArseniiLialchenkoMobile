@@ -7,8 +7,6 @@ import org.openqa.selenium.support.PageFactory;
 
 public class CockiesForm {
 
-    private static final String SCROLL_TO_ELEMENT_SCRIPT = "arguments[0].scrollIntoView(false)";
-
     @FindBy(xpath = "//button[@id='W0wltc']")
     private WebElement acceptAllButton;
 
@@ -21,7 +19,7 @@ public class CockiesForm {
     }
 
     public void clickOnCockiesButton(AppiumDriver appiumDriver) {
-        appiumDriver.executeScript(SCROLL_TO_ELEMENT_SCRIPT, getAcceptAllButton());
+        appiumDriver.executeScript("arguments[0].scrollIntoView(false)", getAcceptAllButton());
         appiumDriver.executeScript("arguments[0].click();", getAcceptAllButton());
     }
 
