@@ -9,21 +9,21 @@ public class nativeData {
 
     public static Properties getPropertyObject() throws IOException {
         String path = new File("src\\test\\resources\\properties\\nativeLogin.properties").getAbsolutePath();
-        FileInputStream fp = new FileInputStream(path);
-        Properties prop = new Properties();
-        prop.load(fp);
-        return prop;
+        FileInputStream fileInputStream = new FileInputStream(path);
+        Properties properties = new Properties();
+        properties.load(fileInputStream);
+        return properties;
     }
 
     public static String getEmailProperties() throws IOException {
         return getPropertyObject().getProperty("email");
     }
 
-    public static String getUserNameFromProperties() throws IOException {
+    public static String getUserNameProperty() throws IOException {
         return getPropertyObject().getProperty("userName");
     }
 
-    public static String getUserPasswordFromProperties() throws IOException {
+    public static String getUserPasswordProperty() throws IOException {
         return getPropertyObject().getProperty("password");
     }
 

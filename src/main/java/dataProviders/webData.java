@@ -9,17 +9,17 @@ public class webData {
 
     public static Properties getPropertyObject() throws IOException {
         String path = new File("src\\test\\resources\\properties\\webGoogle.properties").getAbsolutePath();
-        FileInputStream fp = new FileInputStream(path);
-        Properties prop = new Properties();
-        prop.load(fp);
-        return prop;
+        FileInputStream fileInputStream = new FileInputStream(path);
+        Properties properties = new Properties();
+        properties.load(fileInputStream);
+        return properties;
     }
 
-    public static String getSearchEngineProperties() throws IOException {
+    public static String getGoogleLinkProperty() throws IOException {
         return getPropertyObject().getProperty("googleLink");
     }
 
-    public static String getKeyWordProperties() throws IOException {
+    public static String getSearchKeyProperty() throws IOException {
         return getPropertyObject().getProperty("searchKey");
     }
 

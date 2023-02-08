@@ -9,8 +9,8 @@ import setup.BaseTest;
 
 import java.io.IOException;
 
-import static dataProviders.webData.getKeyWordProperties;
-import static dataProviders.webData.getSearchEngineProperties;
+import static dataProviders.webData.getSearchKeyProperty;
+import static dataProviders.webData.getGoogleLinkProperty;
 
 public class WebMobileTestGoogleSearch extends BaseTest {
 
@@ -19,14 +19,15 @@ public class WebMobileTestGoogleSearch extends BaseTest {
         WebPageObject webPageObject = new WebPageObject(getDriver());
 
         //open Google page
-        getDriver().get(getSearchEngineProperties());
+        getDriver().get(getGoogleLinkProperty());
         waitUntilWebPageOpened();
 
+        //Close cockies pop-up
         CockiesForm cockiesForm = new CockiesForm(getDriver());
         cockiesForm.clickOnCockiesButton(getDriver());
         //Enter search key value
-        webPageObject.getSearchField().sendKeys(getKeyWordProperties() + Keys.ENTER);
+        webPageObject.getSearchField().sendKeys(getSearchKeyProperty() + Keys.ENTER);
 
-        Assert.assertTrue(webPageObject.assertSearchContainText(getKeyWordProperties()));
+        Assert.assertTrue(webPageObject.assertSearchContainText(getSearchKeyProperty()));
     }
 }

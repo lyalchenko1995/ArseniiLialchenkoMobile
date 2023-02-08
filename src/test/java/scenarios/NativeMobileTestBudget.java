@@ -19,10 +19,10 @@ public class NativeMobileTestBudget extends BaseTest {
         loginPage.openRegistrationPage();
 //        Create new user
         RegistrationPage registrationPage = new RegistrationPage(getDriver());
-        registrationPage.fillRegistrationForm(getEmailProperties(), getUserNameFromProperties(), getUserPasswordFromProperties());
+        registrationPage.fillRegistrationForm(getEmailProperties(), getUserNameProperty(), getUserPasswordProperty());
         registrationPage.clickRegistrationButton();
 
-        loginPage.login(getEmailProperties(), getUserPasswordFromProperties());
+        loginPage.login(getEmailProperties(), getUserPasswordProperty());
 
         BudgetActivityPage budgetActivityPage = new BudgetActivityPage(getDriver());
         Assert.assertEquals(budgetActivityPage.getBudgetPageName(), "BudgetActivity");
