@@ -54,7 +54,7 @@
                 <activeByDefault>false</activeByDefault>
             </activation>
             <properties>
-                <suite.file>src/test/resources/nativeTNG.xml</suite.file>
+                <suite.file>src/test/resources/runners/nativeTNG.xml</suite.file>
             </properties>
         </profile>
 
@@ -64,10 +64,8 @@
                 <activeByDefault>true</activeByDefault>
             </activation>
             <properties>
-                <suite.file>./src/test/resources/webTNG.xml</suite.file>
+                <suite.file>src/test/resources/runners/webTNG.xml</suite.file>
             </properties>
         </profile>
     </profiles>
-
-
 </project>

@@ -2,6 +2,9 @@ package pageObjects;
 
 import io.appium.java_client.AppiumDriver;
 import org.openqa.selenium.WebElement;
+import pageObjects.navitePages.LoginPage;
+import pageObjects.navitePages.NativePageObject;
+import pageObjects.webPages.WebPageObject;
 import setup.IPageObject;
 
 import java.lang.reflect.Field;
@@ -18,13 +21,12 @@ public class PageObject implements IPageObject {
                 somePageObject = new WebPageObject(appiumDriver);
                 break;
             case "native":
-                somePageObject = new NativePageObject(appiumDriver);
+                somePageObject = new LoginPage(appiumDriver);
                 break;
             default: throw new Exception("Can't create a page object for "+appType);
         }
 
     }
-
 
     @Override
     public WebElement getWelement(String weName) throws NoSuchFieldException, IllegalAccessException {
@@ -32,6 +34,5 @@ public class PageObject implements IPageObject {
         Field field = somePageObject.getClass().getDeclaredField(weName);
         field.setAccessible(true);
         return (WebElement) field.get(somePageObject);
-
     }
 }
