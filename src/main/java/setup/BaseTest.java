@@ -50,7 +50,7 @@ public class BaseTest implements IDriver {
     }
 
     @AfterClass(alwaysRun = true)
-    public void tearDown() throws Exception {
+    public void tearDown() {
         System.out.println("After");
         appiumDriver.closeApp();
     }
@@ -76,9 +76,8 @@ public class BaseTest implements IDriver {
          capabilities.setCapability("bundleId",bundleId);
 
         try {
-            String url = String.format("https://%s:%s@app.mobitru.com/wd/hub", System.getenv(""),
-                    URLEncoder.encode(System.getenv("")));
-            ----------
+            String url = String.format("https://%s:%s@app.mobitru.com/wd/hub", System.getenv("USERNAMEM"),
+                    URLEncoder.encode(System.getenv("TOKEN")));
             appiumDriver = new AppiumDriver(new URL(url), capabilities);
         } catch (MalformedURLException e) {
             e.printStackTrace();

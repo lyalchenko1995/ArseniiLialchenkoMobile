@@ -10,7 +10,7 @@ import java.lang.reflect.Field;
 
 public class PageObject implements IPageObject {
 
-    Object somePageObject; // it should be set of web page or EPAM Test App WebElements
+    Object somePageObject;
 
     public PageObject(String appType, AppiumDriver appiumDriver) throws Exception {
 
