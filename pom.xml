@@ -32,7 +32,7 @@
                         <suiteXmlFile>${suite.file}</suiteXmlFile>
                     </suiteXmlFiles>
                     <systemPropertyVariables>
-                        <ts.appium>http://localhost:4723/wd/hub</ts.appium>
+                        <ts.appium>https://EPM-TSTF:${System.getenv("TOKEN")}@app.mobitru.com/wd/hub</ts.appium>
                     </systemPropertyVariables>
                 </configuration>
             </plugin>
@@ -49,22 +49,33 @@
 
     <profiles>
         <profile>
-            <id>native</id>
-            <activation>
-                <activeByDefault>false</activeByDefault>
-            </activation>
-            <properties>
-                <suite.file>src/test/resources/runners/nativeTNG.xml</suite.file>
-            </properties>
-        </profile>
-
-        <profile>
-            <id>web</id>
+            <id>nativeAndroid</id>
             <activation>
                 <activeByDefault>true</activeByDefault>
             </activation>
             <properties>
-                <suite.file>src/test/resources/runners/webTNG.xml</suite.file>
+                <suite.file>src/test/resources/runners/cloudAndroidNative.xml</suite.file>
+            </properties>
+        </profile>
+
+        <profile>
+            <id>nativeIOS</id>
+            <properties>
+                <suite.file>src/test/resources/runners/cloudIOSNative.xml</suite.file>
+            </properties>
+        </profile>
+
+        <profile>
+            <id>webAndroid</id>
+            <properties>
+                <suite.file>src/test/resources/runners/cloudAndroidWeb.xml</suite.file>
+            </properties>
+        </profile>
+
+        <profile>
+            <id>webIOS</id>
+            <properties>
+                <suite.file>src/test/resources/runners/cloudIOSWeb.xml</suite.file>
             </properties>
         </profile>
     </profiles>
